@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <link rel="icon" href="https://static-00.iconduck.com/assets.00/heart-icon-2048x1868-ejqkc39r.png">
 	  <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
 	  <style>
 	    h1 {
@@ -12,10 +11,12 @@
 	      font-family: 'Fredoka One';
 	      font-size: 25px;
 	      cursor: pointer;
+	      text-align: center;
 	    }
 	  </style>
 	  <style>
-      #myButton {
+      a {
+        text-align: center;
         cursor: pointer; /* This will make the cursor change to a hand when hovering over the button */
       }
     </style>
@@ -243,9 +244,13 @@
       })();
 		</script>
 		<script>
-			
-
 			        // for starting the confetti 
+			        const shrink = (element, value) => {
+			          document.getElementById(element).style.fontSize = value-value*0.125.toString() + 'px'
+			        }
+			        const grow = (element, value) => {
+			          document.getElementById(element).style.fontSize = value.toString() + 'px'
+			        }
 
 			        const start = () => {
 			            setTimeout(function() {
@@ -270,7 +275,11 @@
 	</head>
 <body>
   <h1><center>Happy Mothersday!</center></h1>
-  <a id='myButton' onmousedown='startAndStop();' style='font-size: 200px; vertical-align:middle;'><center>&#127881;</center></a>
-  <h4 onmousedown='alert("                                            Landon&#10084;")'><center>From your favorite child...&#129392;</center></h4>
+  <div style='text-align: center'>
+    <a id='myButton' onmouseover='grow("myButton", 225);' onmouseout='grow("myButton", 200)' onclick='startAndStop();' onmousedown = 'grow("myButton", 200);' onmouseup='grow("myButton", 225);' style='font-size: 200px;'>&#127881;</a>
+  </div>
+  <div style='text-align: center'>
+    <h4 id='headerText' onmouseover = 'grow("headerText", 30);' onmouseout='grow("headerText", 25);' onmousedown = 'grow("headerText", 25);' onmouseup='grow("headerText", 30);' onclick='alert("                                           Landon&#10084;")'>From your favorite child...&#129392;</h4>
+  </div>
 </body>
 </html>
